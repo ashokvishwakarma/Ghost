@@ -142,6 +142,23 @@ into the {body} of the default.hbs template --}}
 
 <div class="available-for weight700"><i class="icon-circle-filled color-green"></i> <span style="color: #656369;">Available for consulting/speaking</span></div>
 
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <div class="post-feed">
+            {{#foreach posts}}
+
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div>
+
+    </div>
+</main>
+
 <script type="text/javascript">
     (function(window, document) {
         var available = document.querySelector('.available-for');
