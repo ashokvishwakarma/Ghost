@@ -30,6 +30,15 @@
                     "format": "uri-reference",
                     "maxLength": 2000
                 },
+                "is_event": {
+                    "type": "boolean"
+                },
+                "event_date": {
+                    "type": ["string", "null"]
+                },
+                "event_location": {
+                    "type": ["string", "null"]
+                },
                 "featured": {
                     "type": "boolean"
                 },
