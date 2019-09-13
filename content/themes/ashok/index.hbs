@@ -1,0 +1,156 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{> header }} {{!--Special header.hbs partial to generate the <header> tag--}}
+    
+    <div class="inner">
+        <div class="line">
+            <svg xmlns="http://www.w3.org/2000/svg" width="534.068" height="765.836" viewBox="0 0 534.068 765.836">
+                <defs>
+                    <style>
+                    .cls-1 {
+                        fill: none;
+                        stroke: rgba(25,26,30,0.15);
+                        fill-rule: evenodd;
+                        stroke-dasharray: 10;
+                        animation: dash 5s linear infinite;
+                    }
+
+                    @keyframes dash {
+                        to {
+                            stroke-dashoffset: -300;
+                        }
+                    }
+                    </style>
+                </defs>
+                <g id="Design" transform="translate(-0.431 0.008)">
+                    <g id="Werk-1" transform="translate(0.931 0)">
+                    <g id="Path-2" transform="translate(0)">
+                        <path id="Path_1" data-name="Path 1" class="cls-1" d="M1430.952,0q3.365,199.547-230.184,199.547-219.461,0-100.117,298.522h0c4.466,11.172.062,24.314-9.837,29.354a17.642,17.642,0,0,1-11.326,1.66q-175.862-33.142-179.4,99.405-3.9,146.138-.738,136.206" transform="translate(-897.931 0)"/>
+                    </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="site-header-content">
+            <label class="info-label dark site-description">Ashok Vishwakarma</label>
+            <h1 class="site-title"><span class="color-red">Google Developer Expert</span>, <span class="color-blue">Entrepreneur</span>, <span class="color-yellow">Tech Enthusiast</span> <span style="font-weight: 400"></span>&amp; <span class="color-green">Speaker</span></h1>
+            <div class="button" style="padding-top: 55px;">
+                <a href="" class="btn btn-dark">Get in touch <i class="icon-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-section">
+    <div class="inner">
+        <div class="image">
+            <a href="javascript:void(0);" class="go-down"><i class="icon-arrow-down"></i></a>
+            <img src="{{asset 'mypic.png'}}" />
+        </div>
+
+        <div class="intro-text">
+            <div class="services">
+                <h2>How can I help you?</h2>
+                <p style="opacity: 0.7;">As a freelance digital designer, I am here to make you stand out in the digital world. The combination of my passion for design and your vision will ensure a great end result.</p>
+                <div><a href="" class="sevice-link">Services <i class="icon-arrow-right"></i></a></div>
+            </div>
+            <div class="links">
+                <ul>
+                    <li class="label">Consulting</li>
+                    <li>Blockchain</li>
+                    <li>Machine Learning</li>
+                    <li>Architecture Design</li>
+                </ul>
+                <ul>
+                    <li class="label">Speaking</li>
+                    <li>GraphQL</li>
+                    <li>TypeScript</li>
+                    <li>Angular</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-section recent-events">
+    <div class="inner">
+        <div class="section-title">
+            <h2>Recent events <a href="" class="btn btn-empty btn-sm">View all <i class="icon-arrow-right"></i></a></h2>
+        </div>
+        <div class="section-content">
+            {{#get "posts" limit="2" filter="primary_tag:event+featured:true" order="event_date asc"}}
+                {{#foreach posts}}
+                <a class="link-wrapper" href="{{url}}">
+                    <div class="tile">
+                        <div class="top"><span class="color-blue weight900">{{this.event_location}}</span> <div>{{date this.event_date format="DD, MMM YYYY"}}</div></div>
+                        <h3>{{title}}</h3>
+                        <p>{{excerpt}}</p>
+                        <span class="arrow px24"><i class="icon-arrow-right"></i></span>
+                    </div>
+                </a>
+                {{/foreach}}
+            {{/get}}
+            
+        </div>
+    </div>
+</div>
+
+<div class="home-section recent-posts">
+    <div class="inner">
+        <div class="section-title">
+            <h2>Recent posts <a href="" class="btn btn-empty btn-sm">View all <i class="icon-arrow-right"></i></a></h2>
+        </div>
+        <div class="section-content">
+            {{#get "posts" limit="2" filter="featured:true+primary_tag:-event" order="published_at desc" include="tags"}}
+                {{#foreach posts}}
+                <a class="link-wrapper" href="{{url}}">
+                    <div class="tile">
+                        <div class="top"><span class="color-green weight900">{{primary_tag.name}}</span> <div>{{date this.published_at format="DD, MMM YYYY"}}</div></div>
+                        <h3>{{title}}</h3>
+                        <p>{{excerpt}}</p>
+                        <span class="arrow px24"><i class="icon-arrow-right"></i></span>
+                        <span class="time weight700" style="opacity: 0.7;">{{reading_time}}</span>
+                    </div>
+                </a>
+                {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+</div>
+
+<div class="home-section" style="padding: 100px 0;">
+    <div class="inner">
+        <div class="like-me">
+            <label class="info-label site-description">Like what I do?</label>
+            <h1 class="site-title" style="font-weight: 900;">Let's connect to work together</h1>
+            <div class="button" style="padding-top: 30px;">
+                <a href="" style="margin: 0;" class="btn btn-empty">Get in touch <i class="icon-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="main-navigation">
+    <div class="inside">
+        <div class="logo-wrapper">
+            <a href="/" class="logo-main"></a>
+        </div>
+    </div>
+</div>
+
+<div class="available-for weight700"><i class="icon-circle-filled color-green"></i> <span style="color: #656369;">Available for consulting/speaking</span></div>
+
+<script type="text/javascript">
+    (function(window, document) {
+        var available = document.querySelector('.available-for');
+        document.addEventListener('scroll', function(event) {
+            if(window.scrollY > 30) {
+                return available.classList.add('hide');
+            }
+
+            available.classList.remove('hide');
+        });
+    })(window, document);
+</script>
