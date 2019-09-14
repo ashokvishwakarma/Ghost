@@ -6,6 +6,8 @@
 */
 @import "spirit/spirit.css";
 
+@import "font.css";
+
 /* Patterns: Groups of Styles
 /* ---------------------------------------------------------- */
 @import "patterns/global.css";

@@ -280,6 +280,9 @@ a, a:hover {
 
 .main-navigation .inside {
     padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .main-navigation .inside .logo-main {
@@ -287,6 +290,41 @@ a, a:hover {
     height: 32px;
     background: url(../logo.svg) no-repeat center center;
     display: inline-block;
+}
+
+.main-navigation .inside .menu-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    line-height: 0;
+}
+
+.main-navigation .inside .menu-icon span {
+    width: 32px;
+    height: 3px;
+    display: block;
+    background: #FFF;
+    line-height: 0;
+    opacity: 1;
+    transition: all 0.3s linear;
+}
+
+.main-navigation .inside .menu-icon span:nth-child(2) {
+    margin: 5px 0;
+    width: 20px;
+    margin-left: 12px;
+}
+
+.main-navigation .inside .menu-icon.close span:nth-child(2) {
+    opacity: 0;
+}
+
+.main-navigation .inside .menu-icon.close span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.main-navigation .inside .menu-icon.close span:nth-child(3) {
+    transform: rotate(-45deg) translate(1px, -1px);
 }
 
 .home-section {
@@ -1083,13 +1121,13 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .post-full-content a {
-    color: #1e023c;
+    color: var(--black);
     word-break: break-word;
-    box-shadow: var(--blue) 0 -1px 0 inset;
+    box-shadow: var(--black) 0 -1px 0 inset;
 }
 
 .post-full-content a:hover {
-    color: var(--blue);
+    color: var(--black);
     text-decoration: none;
 }
 
@@ -1158,9 +1196,10 @@ Usage (In Ghost editor):
 }
 
 .post-full-content blockquote {
+    box-shadow: inset 3px 0 0 0 rgba(0, 0, 0, 0.84);
     margin: 0 0 1.5em;
     padding: 0 1.5em;
-    border-left: #3eb0ef 3px solid;
+    border-left: none;
 }
 
 .post-full-content blockquote p {
@@ -2220,7 +2259,7 @@ Usage (In Ghost editor):
 
 .post-full-content .kg-bookmark-container {
     display: flex;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: Glober;
     color: var(--darkgrey);
     text-decoration: none;
     min-height: 148px;

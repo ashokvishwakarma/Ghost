@@ -119,6 +119,10 @@ into the {body} of the default.hbs template --}}
     </div>
 </div>
 
+<div style="padding: 100px 0 20px 0;background: #FFF;">
+    <div style="width: 100%;height:1px;background: #F3F2F5;"></div>
+</div>
+
 <div class="home-section" style="padding: 100px 0;">
     <div class="inner">
         <div class="like-me">
@@ -137,31 +141,31 @@ into the {body} of the default.hbs template --}}
         <div class="logo-wrapper">
             <a href="/" class="logo-main"></a>
         </div>
+        <div class="menu-icon">
+            <a href="javascript:void(0);">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
     </div>
 </div>
 
 <div class="available-for weight700"><i class="icon-circle-filled color-green"></i> <span style="color: #656369;">Available for consulting/speaking</span></div>
 
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
-        <div class="post-feed">
-            {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
-
-    </div>
-</main>
-
 <script type="text/javascript">
     (function(window, document) {
         var available = document.querySelector('.available-for');
+        var menuIcon = document.querySelector('.menu-icon');
+        
+        menuIcon.addEventListener('click', function() {
+            if(this.classList.contains('close')) {
+                return this.classList.remove('close')
+            }
+
+            this.classList.add('close');
+        })
+        
         document.addEventListener('scroll', function(event) {
             if(window.scrollY > 30) {
                 return available.classList.add('hide');
