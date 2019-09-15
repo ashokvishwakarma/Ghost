@@ -198,49 +198,6 @@
             </div>
         </div>
 
-        <div class="gh-setting-header">Custom Fields</div>
-        <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
-            <div class="gh-setting-first gh-setting-last">
-                <div class="gh-setting-content">
-                    <div class="gh-setting-title">Post</div>
-                    <div class="gh-setting-desc">Add custom fields to your post</div>
-                    {{#liquid-if socialOpen}}
-                    <div class="gh-setting-content-extended">
-                        {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="facebook"}}
-                            {{gh-text-input
-                                type="url"
-                                placeholder="https://www.facebook.com/ghost"
-                                autocorrect="off"
-                                value=(readonly settings.facebook)
-                                input=(action (mut _scratchFacebook) value="target.value")
-                                focus-out=(action "validateFacebookUrl")
-                                data-test-facebook-input=true
-                            }}
-                            {{gh-error-message errors=settings.errors property="facebook" data-test-facebook-error=true}}
-                            <p>URL of your publication's Facebook Page</p>
-                        {{/gh-form-group}}
-                        {{#gh-form-group errors=settings.errors hasValidated=settings.hasValidated property="twitter"}}
-                            {{gh-text-input
-                                type="url"
-                                placeholder="https://twitter.com/ghost"
-                                autocorrect="off"
-                                value=(readonly settings.twitter)
-                                input=(action (mut _scratchTwitter) value="target.value")
-                                focus-out=(action "validateTwitterUrl")
-                                data-test-twitter-input=true
-                            }}
-                            {{gh-error-message errors=settings.errors property="twitter" data-test-twitter-error=true}}
-                            <p>URL of your publication's Twitter profile</p>
-                        {{/gh-form-group}}
-                    </div>
-                    {{/liquid-if}}
-                </div>
-                <div class="gh-setting-action">
-                    <button type="button" class="gh-btn" {{action (toggle "socialOpen" this)}} data-test-toggle-social><span>{{if socialOpen "Close" "Expand"}}</span></button>
-                </div>
-            </div>
-        </div>
-
         <div class="gh-setting-header">Site meta settings</div>
         <div class="flex flex-column br3 shadow-1 bg-grouped-table pa5">
             <div class="gh-setting-first flex-column">

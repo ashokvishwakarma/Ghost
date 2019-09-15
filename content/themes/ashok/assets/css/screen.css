@@ -37,7 +37,7 @@ production stylesheet in assets/built/screen.css
 body {
     background: #FFFFFF;
     font-family: "Glober";
-    color: #1e023c;
+    color: #130227;
 }
 
 .img {
@@ -73,6 +73,7 @@ a, a:hover {
 .site-main {
     z-index: 100;
     flex-grow: 1;
+    margin-top: 80px;
 }
 
 /* Full width page blocks */
@@ -120,12 +121,12 @@ a, a:hover {
 /* ---------------------------------------------------------- */
 
 .site-header {
-    position: relative;
-    padding-top: 12px;
-    padding-bottom: 100px;
-    color: var(--darkgrey);
-    background: #FFF;
-    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--black);
+    z-index: 999;
 }
 
 .site-header .inner {
@@ -970,16 +971,110 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 /* ^ Required to make .post-full-content:before/after z-index stacking work */
 
+/* 7.1. Subscribe Form
+/* ---------------------------------------------------------- */
+
+.subscribe-form {
+    margin: 1.5em 0;
+    padding: 70px 100px 0;
+    background: #FFF;
+}
+
+.subscribe-form .content {
+    border: 1px dashed var(--whitegrey);
+    padding: 30px;
+}
+
+.subscribe-form h3 {
+    margin-top: 0;
+    padding-bottom: 15px;
+    color: var(--darkgrey);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.subscribe-form form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.subscribe-form .form-group {
+    flex-grow: 1;
+}
+
+.subscribe-email {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border:1px solid var(--whitegrey);
+    color: var(--midgrey);
+    font-size: 1.8rem;
+    line-height: 1em;
+    font-weight: normal;
+    user-select: text;
+    transition: border-color 0.15s linear;
+    -webkit-appearance: none;
+}
+
+.subscribe-email:focus {
+    outline: 0;
+    border-color: color(var(--lightgrey) l(-1%));
+}
+
+.subscribe-form button {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding: 0 20px;
+    height: 46px;
+    outline: none;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 37px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+    background: var(--blue);
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.subscribe-form button:active,
+.subscribe-form button:focus {
+    background: color(var(--blue) lightness(-9%) saturation(-10%));
+}
+
+@media (max-width: 650px) {
+    .subscribe-form-title {
+        font-size: 2.4rem;
+    }
+    .subscribe-form p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .subscribe-form form {
+        flex-direction: column;
+    }
+    .subscribe-form .form-group {
+        width: 100%;
+    }
+    .subscribe-form button {
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+}
+
 .post-full-header {
     margin: 0 auto;
-    padding: 6vw 3vw 3vw;
-    max-width: 1040px;
-    text-align: center;
+    padding-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
+
 @media (max-width: 500px) {
-    .post-full-header {
-        padding: 14vw 3vw 10vw;
-    }
+    
 }
 
 .post-full-meta {
@@ -993,12 +1088,24 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .post-full-meta-date {
-    color: var(--blue);
+    color: var(--lightgrey);
+    margin-top: 8px;
+}
+
+.post-full-meta-date span {
+    font-weight: 700;
+}
+
+.post-full-meta-date a {
+    box-shadow: none !important;
+    font-weight: 900;
+    color: var(--blue) !important;
 }
 
 .post-full-title {
     margin: 0;
-    color: color(var(--darkgrey) l(-5%));
+    color: var(--black);
+    font-weight: 900;
 }
 
 .date-divider {
@@ -1007,31 +1114,19 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .post-full-image {
-    margin: 0 -10vw -165px;
+    margin: 0 -10vw 0;
     background: var(--lightgrey) center center;
-    border-radius: 5px;
     overflow: hidden;
 }
 
 .post-full-image img {
     width: 100%;
-    height: 800px;
-    object-fit: cover;
 }
 
 @media (max-width: 1170px) {
     .post-full-image {
-        margin: 0 -4vw -100px;
+        margin: 0 -4vw 0;
         border-radius: 0;
-    }
-    .post-full-image img {
-        height: 600px;
-    }
-}
-
-@media (max-width: 800px) {
-    .post-full-image img {
-        height: 400px;
     }
 }
 
@@ -1050,39 +1145,21 @@ make sure this only happens on large viewports / desktop-ish devices.
     .post-full-content {
         padding: 5vw 7vw 0;
     }
+
+    .subscribe-form {
+        padding: 5vw 7vw;
+    }
+
+    .post-full-header {
+        padding-left: 7vw;
+        padding-right: 7vw;
+    }
 }
 @media (max-width: 800px) {
     .post-full-content {
         font-size: 1.9rem;
     }
-}
-
-.post-full-content:before {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: -5px;
-    z-index: -1;
-    display: block;
-    width: 20px;
-    height: 200px;
-    background: rgba(39,44,49,0.15);
-    filter: blur(5px);
-    transform: rotate(-5deg);
-}
-
-.post-full-content:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    right: -5px;
-    z-index: -1;
-    display: block;
-    width: 20px;
-    height: 200px;
-    background: rgba(39,44,49,0.15);
-    filter: blur(5px);
-    transform: rotate(5deg);
+    
 }
 
 .no-image .post-full-content {
@@ -1230,14 +1307,15 @@ Usage (In Ghost editor):
 .post-full-content pre {
     overflow-x: auto;
     margin: 1.5em 0 3em;
+    font-family: monospace;
+    white-space: pre;
     padding: 20px;
     max-width: 100%;
-    border: color(var(--darkgrey) l(-10%)) 1px solid;
-    color: var(--whitegrey);
-    font-size: 1.4rem;
+    border: none;
+    color: var(--darkgrey);
+    font-size: 18px;
     line-height: 1.5em;
-    background: color(var(--darkgrey) l(-3%));
-    border-radius: 5px;
+    background: var(--whitegrey);
 }
 
 .post-full-content pre ::selection {
@@ -1290,7 +1368,7 @@ Usage (In Ghost editor):
 .post-full-content h1 {
     margin: 0.5em 0 0.2em 0;
     font-size: 4.6rem;
-    font-weight: 700;
+    font-weight: 900;
 }
 @media (max-width: 500px) {
     .post-full-content h1 {
@@ -1299,9 +1377,9 @@ Usage (In Ghost editor):
 }
 
 .post-full-content h2 {
-    margin: 0.5em 0 0.2em 0;
+    margin: 1em 0 0.5em 0;
     font-size: 3.6rem;
-    font-weight: 700;
+    font-weight: 900;
 }
 @media (max-width: 500px) {
     .post-full-content h2 {
@@ -1397,14 +1475,23 @@ Usage (In Ghost editor):
     }
     .post-full-image {
         margin-bottom: 4vw;
-        height: 350px;
     }
     .post-full-content {
         padding: 0;
     }
+
+    .subscribe-form {
+        padding: 0;
+    }
+
     .post-full-content:before,
     .post-full-content:after {
         display: none;
+    }
+
+    .post-full-header {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -1458,120 +1545,6 @@ Usage (In Ghost editor):
 .post-full-content table td {
     padding: 6px 12px;
     border: color(var(--whitegrey) l(-1%) s(-5%)) 1px solid;
-}
-
-
-/* 7.1. Subscribe Form
-/* ---------------------------------------------------------- */
-
-.subscribe-form {
-    margin: 1.5em 0;
-    padding: 6.5vw 7vw 7vw;
-    border: color(var(--whitegrey) l(+2%)) 1px solid;
-    text-align: center;
-    background: color(var(--whitegrey) l(+4%));
-    border-radius: 7px;
-}
-
-.subscribe-form-title {
-    margin: 0 0 3px 0;
-    padding: 0;
-    color: var(--darkgrey);
-    font-size: 3.5rem;
-    line-height: 1;
-    font-weight: 700;
-}
-
-.subscribe-form p {
-    margin-bottom: 1em;
-    color: var(--midgrey);
-    font-size: 2.2rem;
-    line-height: 1.55em;
-    letter-spacing: 0.2px;
-}
-
-.subscribe-form form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 420px;
-}
-
-.subscribe-form .form-group {
-    flex-grow: 1;
-}
-
-.subscribe-email {
-    display: block;
-    padding: 10px;
-    width: 100%;
-    border: color(var(--lightgrey) l(+7%)) 1px solid;
-    color: var(--midgrey);
-    font-size: 1.8rem;
-    line-height: 1em;
-    font-weight: normal;
-    user-select: text;
-    border-radius: 5px;
-    transition: border-color 0.15s linear;
-
-    -webkit-appearance: none;
-}
-
-.subscribe-email:focus {
-    outline: 0;
-    border-color: color(var(--lightgrey) l(-2%));
-}
-
-.subscribe-form button {
-    display: inline-block;
-    margin: 0 0 0 10px;
-    padding: 0 20px;
-    height: 41px;
-    outline: none;
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 37px;
-    font-weight: 400;
-    text-align: center;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
-    background: linear-gradient(
-    color(var(--blue) whiteness(+7%)),
-    color(var(--blue) lightness(-7%) saturation(-10%)) 60%,
-    color(var(--blue) lightness(-7%) saturation(-10%)) 90%,
-    color(var(--blue) lightness(-4%) saturation(-10%))
-    );
-    border-radius: 5px;
-    box-shadow: 0 0 0 1px inset rgba(0,0,0,0.14);
-
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.subscribe-form button:active,
-.subscribe-form button:focus {
-    background: color(var(--blue) lightness(-9%) saturation(-10%));
-}
-
-@media (max-width: 650px) {
-    .subscribe-form-title {
-        font-size: 2.4rem;
-    }
-    .subscribe-form p {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .subscribe-form form {
-        flex-direction: column;
-    }
-    .subscribe-form .form-group {
-        width: 100%;
-    }
-    .subscribe-form button {
-        margin: 10px 0 0 0;
-        width: 100%;
-    }
 }
 
 
@@ -2143,10 +2116,29 @@ Usage (In Ghost editor):
     flex-direction: column;
     align-items: center;
     max-width: 920px;
+    padding-top: 30px;
+}
+
+.post-full-content .tags {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    display: block;
+}
+
+.post-full-content .tags a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    box-shadow: none;
+    background: var(--whitegrey);
+    padding: 3px 15px;
+    color: var(--lightgrey);
+    border-radius: 3px;
+    font-weight: 700;
 }
 
 .post-template .post-content > p:first-child {
-    font-size: 1.25em;
+    font-size: 1.2em;
     line-height: 1.5em;
 }
 
@@ -2652,62 +2644,28 @@ Usage (In Ghost editor):
 /* 11. Site Footer
 /* ---------------------------------------------------------- */
 
-.site-footer {
+.footer {
+    color: var(--black);
+    background: #FFF;
+}
+
+.footer .fotter-content {
+    border-top: 1px solid var(--whitegrey);
+    margin-top: 50px;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 12px;
     position: relative;
-    padding-top: 20px;
-    padding-bottom: 60px;
-    color: #fff;
-    background: color(var(--darkgrey) l(-15%));
 }
 
-.site-footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    color: rgba(255,255,255,0.7);
-    font-size: 1.3rem;
+.footer .fotter-content .social {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
 }
 
-.site-footer-content a {
-    color: rgba(255,255,255,0.7);
-}
-
-.site-footer-content a:hover {
-    color: rgba(255,255,255,1);
-    text-decoration: none;
-}
-
-.site-footer-nav {
-    display: flex;
-}
-
-.site-footer-nav a {
-    position: relative;
-    margin-left: 20px;
-}
-
-.site-footer-nav a:before {
-    content: "";
-    position: absolute;
-    top: 11px;
-    left: -11px;
-    display: block;
-    width: 2px;
-    height: 2px;
-    background: #fff;
-    border-radius: 100%;
-}
-
-.site-footer-nav a:first-of-type:before {
-    display: none;
-}
-
-@media (max-width: 650px) {
-    .site-footer-content {
-        flex-direction: column;
-    }
-    .site-footer-nav a:first-child {
-        margin-left: 0;
-    }
+.footer .fotter-content .social a {
+    color: var(--darkgrey);
+    margin: 0 3px;
+    font-size: 14px;
 }

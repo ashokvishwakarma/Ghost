@@ -8,13 +8,13 @@
     --purple: #242224;
     --yellow: #f8bb0a;
     --red: #e54539;
-    --darkgrey: #1e023c;
-    --midgrey: rgba(var(--darkgrey), 0.7);
-    --lightgrey: rgba(var(--darkgrey), 0.5);;
-    --whitegrey: rgba(var(--darkgrey), 0.1);
+    --darkgrey: #2A1A3C;
+    --midgrey: #594D67;
+    --lightgrey: #888092;
+    --whitegrey: #E7E5E9;
     --pink: #b63843;
     --brown: #a3821a;
-    --black: #1D143B;
+    --black: #130227;
 }
 
 /* Reset
@@ -336,7 +336,7 @@ ul,
 ol,
 dl,
 blockquote {
-    margin: 0 0 1.5em 0;
+    margin: 0 0 1em 0;
 }
 
 ol,
@@ -438,12 +438,12 @@ h6 {
 
 h1 {
     margin: 0 0 0.5em 0;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 @media (max-width: 500px) {
     h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 }
 
