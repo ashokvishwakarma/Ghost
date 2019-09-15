@@ -1,8 +1,8 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
-{{> header }} {{!--Special header.hbs partial to generate the <header> tag--}}
-    
+
+<div class="main-banner">
     <div class="inner">
         <div class="line">
             <svg xmlns="http://www.w3.org/2000/svg" width="534.068" height="765.836" viewBox="0 0 534.068 765.836">
@@ -32,7 +32,7 @@ into the {body} of the default.hbs template --}}
                 </g>
             </svg>
         </div>
-        <div class="site-header-content">
+        <div class="main-banner-content">
             <label class="info-label dark site-description">Ashok Vishwakarma</label>
             <h1 class="site-title"><span class="color-red">Google Developer Expert</span>, <span class="color-blue">Entrepreneur</span>, <span class="color-yellow">Tech Enthusiast</span> <span style="font-weight: 400"></span>&amp; <span class="color-green">Speaker</span></h1>
             <div class="button" style="padding-top: 55px;">
@@ -40,12 +40,11 @@ into the {body} of the default.hbs template --}}
             </div>
         </div>
     </div>
-</header>
+</div>
 
 <div class="main-section">
     <div class="inner">
         <div class="image">
-            <a href="javascript:void(0);" class="go-down"><i class="icon-arrow-down"></i></a>
             <img src="{{asset 'mypic.png'}}" />
         </div>
 
@@ -94,14 +93,11 @@ into the {body} of the default.hbs template --}}
             
         </div>
     </div>
-</div>
-
-<div class="home-section recent-posts">
     <div class="inner">
         <div class="section-title">
             <h2>Recent posts <a href="" class="btn btn-empty btn-sm">View all <i class="icon-arrow-right"></i></a></h2>
         </div>
-        <div class="section-content">
+        <div class="section-content" style="padding-bottom: 80px;">
             {{#get "posts" limit="2" filter="featured:true+primary_tag:-event" order="published_at desc" include="tags"}}
                 {{#foreach posts}}
                 <a class="link-wrapper" href="{{url}}">
@@ -117,54 +113,26 @@ into the {body} of the default.hbs template --}}
             {{/get}}
         </div>
     </div>
-</div>
-
-<div style="padding: 100px 0 20px 0;background: #FFF;">
-    <div style="width: 100%;height:1px;background: #F3F2F5;"></div>
-</div>
-
-<div class="home-section" style="padding: 100px 0;">
-    <div class="inner">
-        <div class="like-me">
-            <label class="info-label site-description">Like what I do?</label>
-            <h1 class="site-title" style="font-weight: 900;">Let's connect to work together</h1>
-            <div class="button" style="padding-top: 30px;">
-                <a href="" style="margin: 0;" class="btn btn-empty">Get in touch <i class="icon-arrow-right"></i></a>
+    <div class="like-me-section">
+        <div class="inner">
+            <div class="like-me">
+                <label class="info-label site-description">Like what I do?</label>
+                <h1 class="site-title" style="font-weight: 900;">Let's connect to work together</h1>
+                <div class="button" style="padding-top: 30px;">
+                    <a href="" style="margin: 0;" class="btn btn-empty">Get in touch <i class="icon-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<div class="main-navigation">
-    <div class="inside">
-        <div class="logo-wrapper">
-            <a href="/" class="logo-main"></a>
-        </div>
-        <div class="menu-icon">
-            <a href="javascript:void(0);">
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
-        </div>
-    </div>
+<div class="available-for weight700">
+    <i class="icon-circle-filled color-green"></i> <span style="color: #656369;">Available for consulting/speaking</span>
 </div>
-
-<div class="available-for weight700"><i class="icon-circle-filled color-green"></i> <span style="color: #656369;">Available for consulting/speaking</span></div>
 
 <script type="text/javascript">
     (function(window, document) {
         var available = document.querySelector('.available-for');
-        var menuIcon = document.querySelector('.menu-icon');
-        
-        menuIcon.addEventListener('click', function() {
-            if(this.classList.contains('close')) {
-                return this.classList.remove('close')
-            }
-
-            this.classList.add('close');
-        })
         
         document.addEventListener('scroll', function(event) {
             if(window.scrollY > 30) {
